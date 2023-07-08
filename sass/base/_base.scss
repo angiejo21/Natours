@@ -1,0 +1,13 @@
+*,
+*::after,
+a::before{
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;/*eredita da body rende più facile cambiare la proprietà in plugin o altri componenti*/
+}
+html{
+  font-size: 62.5%;/*nel caso in cui l'utente voglia modificare la dimensione del font (definisce 1rem)*/
+}
+body{
+  box-sizing: border-box;
+}
