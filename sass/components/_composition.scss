@@ -25,7 +25,7 @@
       top: 10rem;
     }
     &:hover{
-      outline: 1.5rem solid $color-primary; //simile al bordo ma si può staccare
+      outline: 1.5rem solid rgba($color-primary, .5); //simile al bordo ma si può staccare
       transform: scale(1.05) translateY(-.5rem);
       box-shadow: 0 2.5rem 4rem rgba($color-black, .5);
       z-index: 20;
