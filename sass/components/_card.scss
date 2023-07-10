@@ -1,8 +1,8 @@
 .card {
   //FUNCTIONALITY
   height: 52rem;
-  perspective: 150rem;
-  -moz-perspective: 150rem;
+  perspective: 150rem;//più il numero è piccolo più è drammatico
+  -moz-perspective: 150rem; //per mozilla
   position: relative;
   
   &__side {
@@ -13,7 +13,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    backface-visibility: hidden;
+    backface-visibility: hidden; //per non fare vedere il retro dell'elemento (specchiato)
     border-radius: 3px;
     overflow: hidden;
     box-shadow: 0 1.5rem 4rem rgba($color-black, .15);
@@ -23,33 +23,33 @@
     }
 
     &--back{
-      transform: rotateY(180deg);
+      transform: rotateY(180deg);//il retro parte già girato
 
       &-1{
-        background: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark);
+        background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark);
       }
 
       &-2{
-        background: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark);
+        background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark);
       }
       
       &-3{
-        background: linear-gradient(to right bottom, $color-tertiary-light, $color-tertiary-dark);
+        background-image: linear-gradient(to right bottom, $color-tertiary-light, $color-tertiary-dark);
       }
     }
   }
 
   &:hover &__side--front {
-    transform: rotateY(-180deg);
+    transform: rotateY(-180deg);//occhio alla direzione della rotazione
   }
   &:hover &__side--back {
-    transform: rotateY(0);
+    transform: rotateY(0);// il retro viene di fronte
   }
   //FRONT STYLE STYLING
   &__picture{
     background-size: cover;
     height: 23rem;
-    background-blend-mode: screen;
+    background-blend-mode: screen; //applica filtri alle foto, non funziona su Explorer ed Edge
     -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
     clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
 
@@ -58,11 +58,11 @@
     }
 
     &--2{
-      background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark), url(../img/nat-5.jpg);
+      background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark), url(../img/nat-6.jpg);
     }
 
     &--3{
-      background-image: linear-gradient(to right bottom, $color-tertiary-light, $color-tertiary-dark), url(../img/nat-5.jpg);
+      background-image: linear-gradient(to right bottom, $color-tertiary-light, $color-tertiary-dark), url(../img/nat-7.jpg);
     }
   }
 
@@ -76,13 +76,11 @@
     right: 2rem;
     width: 75%;
     text-align: right;
-
-
   }
 
   &__heading-span{
     padding: 1rem 1.5rem;
-    -webkit-box-decoration-break: clone;//tratta la riga spezzata come due righe separate (aggiunge il padding in questo caso)
+    -webkit-box-decoration-break: clone;//tratta la riga spezzata come due righe separate (qui aggiunge il padding anche dove la riga si spezza)
     box-decoration-break: clone;
     &--1{
       background-image: linear-gradient(to right bottom, rgba($color-secondary-light, .85), rgba($color-secondary-dark, .85))
@@ -112,6 +110,32 @@
         }
       }
     }
+  }
+
+  //BACK SIDE STYLING
+
+  &__cta{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    text-align: center;
+  }
+  &__price-box{
+    text-align: center;
+    margin-bottom: 8rem;
+    color: $color-white;
+  }
+
+  &__price-only{
+    font-size: 1.4rem;
+    text-transform: uppercase;
+  }
+
+  &__price-value{
+    font-size: 6rem;
+    font-weight: 100;
   }
 }
 
