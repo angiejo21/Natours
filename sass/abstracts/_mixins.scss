@@ -12,3 +12,31 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+//MEDIA QUERY MAMAGER
+/*
+0 - 600px:    Phone (phone)*
+600 - 900px:  Tablet portrait (tab-port)*
+900 - 1200px: Tablet landscape (tab-land)*
+[1200 - 1800px: normal styles]
+1800px + :    Big desktop (big-desk)*
+*/
+
+//l'unità di misura più consistente tra i browser per le media queries e l'em (px e rem causano rotture nel caso di pagine zoommate e font ingranditi)
+//ORDINE PER CONVERTIRE IL SITO: Base + typography > general layout + grid > page layout > components 
+//default font-size del browser: 16px (1em)
+
+@mixin respond($breakpoint) { //quando includo il mixin aggiungo una variabile come argomento
+  @if $breakpoint == phone { //se la variabile corrisponde, le regole che inserisco dopo verranno incluse nella query finale
+    @media (max-width: 37.5em) { @content }; //600px
+  }
+  @if $breakpoint == tab-port {
+    @media (max-width: 56.25em) { @content };  //900px
+  }
+  @if $breakpoint == tab-land {
+    @media (max-width: 75em) { @content };  //1200px
+  }
+  @if $breakpoint == big-desk {
+    @media (min-width: 112.5em) { @content };  //1800px
+  }
+}
