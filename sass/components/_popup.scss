@@ -20,7 +20,7 @@
     @include absCenter;
     width: 75%;
     background-color: $color-white;
-    border-radius: 3px;
+    border-radius: $radius-standard;
     overflow: hidden;
     box-shadow: 0 2rem 4rem rgba($color-black, .2);
     display: table;

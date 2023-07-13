@@ -18,7 +18,7 @@
     to right bottom, 
     rgba($color-primary-light, 0.8), 
     rgba($color-primary-dark, 0.8)) , 
-    url('../img/nat-4.jpg');
+    url('../img/nat-4-small.jpg');
   background-size: cover;
   transform: skewY(-7deg);
   margin-top: -20vh; //10rem
@@ -33,6 +33,15 @@
     & > *{
       transform: skewY(5deg);
     }
+  }
+  @media only screen and (min-resolution:192dpi) and (min-width: 37.5em),
+  only screen and(-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em),
+  only screen and(min-width:125em){
+    background-image: linear-gradient(
+      to right bottom, 
+      rgba($color-primary-light, 0.8), 
+      rgba($color-primary-dark, 0.8)) , 
+      url('../img/nat-4.jpg');
   }
 }
 
@@ -70,7 +79,7 @@
     transparent 50%),
     url(../img/nat-10.jpg);
     background-size: cover; //o 100%
-    border-radius: 3px;
+    border-radius: $radius-standard;
     box-shadow: 0 1.5rem 4rem rgba($color-black, .2);
     
     @include respond(tab-land){
@@ -79,6 +88,11 @@
     
     @include respond(tab-port){
       background-image: linear-gradient(to right, rgba($color-white, .9) 0%, rgba($color-white, .9) 100%), url(../img/nat-10.jpg);
+    }
+    
+    @media screen and (-webkit-min-device-pixel-ratio: 1) and (max-width: 56.25em),
+    only screen and (max-width:37.5em){
+      background-image: linear-gradient(to right, rgba($color-white, .9) 0%, rgba($color-white, .9) 100%), url(../img/nat-10-small.jpg);      
     }
   &__form{
     width: 50%;
